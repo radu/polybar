@@ -75,10 +75,10 @@ namespace modules {
 
     static const size_t SKIP_N_UNCHANGED{3_z};
 
-    unique_ptr<state_reader> m_state_reader;
-    unique_ptr<capacity_reader> m_capacity_reader;
-    unique_ptr<rate_reader> m_rate_reader;
-    unique_ptr<consumption_reader> m_consumption_reader;
+    unique_ptr<state_reader>  m_state_reader;
+    unique_ptr<capacity_reader>  m_capacity_reader;
+    unique_ptr<rate_reader>  m_rate_reader;
+    unique_ptr<consumption_reader>  m_consumption_reader;
 
     label_t m_label_charging;
     label_t m_label_discharging;
@@ -88,10 +88,11 @@ namespace modules {
     ramp_t m_ramp_capacity;
 
     string m_fstate;
-    string m_fcapnow;
-    string m_fcapfull;
-    string m_frate;
-    string m_fvoltage;
+
+    std::vector<string> m_fcapnow;
+    std::vector<string> m_fcapfull;
+    std::vector<string> m_frate;
+    std::vector<string> m_fvoltage;
 
     state m_state{state::DISCHARGING};
     int m_percentage{0};
